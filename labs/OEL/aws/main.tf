@@ -567,7 +567,7 @@ resource "aws_cloudwatch_metric_alarm" "cpu_high" {
 
 # CloudWatch Dashboard with at least one widget (Part 5.2 requirement)
 resource "aws_cloudwatch_dashboard" "oel_dashboard" {
-  dashboard_name = "HaseenUllah-OEL-Dashboard-${random_id.suffix.hex}"
+  dashboard_name = "OEL-Dashboard-${random_id.suffix.hex}"
 
   dashboard_body = jsonencode({
     widgets = [

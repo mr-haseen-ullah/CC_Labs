@@ -646,7 +646,7 @@ EOF
 
 # Create Dashboard
 aws cloudwatch put-dashboard \
-  --dashboard-name "HaseenUllah-OEL-Dashboard-$SUFFIX" \
+  --dashboard-name "OEL-Dashboard-$SUFFIX" \
   --dashboard-body file://dashboard.json
 
 rm -f dashboard.json
@@ -686,7 +686,7 @@ After deploying, verify health status and operation:
 ```bash
 # 9.1. Delete CloudWatch Alarm & Dashboard
 aws cloudwatch delete-alarms --alarm-names "oel-asg-cpu-high-alarm-$SUFFIX"
-aws cloudwatch delete-dashboards --dashboard-names "HaseenUllah-OEL-Dashboard-$SUFFIX"
+aws cloudwatch delete-dashboards --dashboard-names "OEL-Dashboard-$SUFFIX"
 
 # 9.2. Delete Auto Scaling Group (Force termination of active instances)
 aws autoscaling delete-auto-scaling-group --auto-scaling-group-name "oel-portfolio-asg-$SUFFIX" --force-delete

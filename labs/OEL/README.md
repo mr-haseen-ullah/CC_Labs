@@ -161,7 +161,7 @@ This screenshot displays your Auto Scaling Group `oel-portfolio-asg-*` running i
 ---
 
 ### **Proof 5: CloudWatch Custom Dashboard & Metric Graph**
-This screenshot displays the custom operational dashboard `HaseenUllah-OEL-Dashboard-*` actively graphing CPU utilization metric telemetry from the Scaling Group:
+This screenshot displays the custom operational dashboard `OEL-Dashboard-*` actively graphing CPU utilization metric telemetry from the Scaling Group:
 
 ![CloudWatch Dashboard CPU Tracking](media/Screenshot%202026-06-01%20154600.png)
 
