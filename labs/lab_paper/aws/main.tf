@@ -416,3 +416,46 @@ resource "aws_s3_object" "exam_confirmation" {
   key     = "exam_confirmation.txt"
   content = "Final Term Exam Upload Completed Successfully."
 }
+
+# ─── CloudWatch Instrumentation Dashboard ──────────────────────────────────────
+
+resource "aws_cloudwatch_dashboard" "finalterm_dashboard" {
+  dashboard_name = "FinalTerm-Dashboard-${random_id.suffix.hex}"
+
+  dashboard_body = jsonencode({
+    widgets = [
+      {
+        type   = "metric"
+        x      = 0
+        y      = 0
+        width  = 12
+        height = 6
+        properties = {
+          metrics = [
+            ["AWS/EC2", "CPUUtilization", "InstanceId", aws_instance.web_server.id]
+          ]
+          period = 60
+          stat   = "Average"
+          region = var.aws_region
+          title  = "WebServer CPU Utilization (%)"
+        }
+      },
+      {
+        type   = "metric"
+        x      = 12
+        y      = 0
+        width  = 12
+        height = 6
+        properties = {
+          metrics = [
+            ["CWAgent", "mem_used_percent", "InstanceId", aws_instance.web_server.id, "InstanceType", aws_instance.web_server.instance_type]
+          ]
+          period = 60
+          stat   = "Average"
+          region = var.aws_region
+          title  = "WebServer Memory Used (%)"
+        }
+      }
+    ]
+  })
+}

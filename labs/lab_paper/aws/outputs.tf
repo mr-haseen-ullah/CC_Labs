@@ -18,3 +18,8 @@ output "ssh_private_key" {
   value       = tls_private_key.web_server_key.private_key_pem
   sensitive   = true
 }
+
+output "cloudwatch_dashboard_name" {
+  description = "The name of the created CloudWatch dashboard"
+  value       = aws_cloudwatch_dashboard.finalterm_dashboard.dashboard_name
+}
