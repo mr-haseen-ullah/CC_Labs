@@ -26,6 +26,7 @@ on:
           - '15'
           - '16'
           - 'OEL'
+          - 'lab_paper'
       cloud_provider:
         description: 'Cloud Provider'
         required: true
@@ -120,6 +121,8 @@ jobs:
           LAB_NUM=${{ github.event.inputs.lab_number }}
           if [[ "$LAB_NUM" == "OEL" ]]; then
             LAB_DIR="OEL"
+          elif [[ "$LAB_NUM" == "lab_paper" ]]; then
+            LAB_DIR="lab_paper"
           elif [[ ${#LAB_NUM} -eq 1 ]]; then
             LAB_DIR="lab0${LAB_NUM}"
           else
