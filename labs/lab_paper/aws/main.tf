@@ -190,7 +190,7 @@ resource "aws_iam_instance_profile" "ec2_profile" {
 
 resource "aws_instance" "web_server" {
   ami                    = data.aws_ami.amazon_linux.id
-  instance_type          = "t2.micro"
+  instance_type          = "t3.micro"
   subnet_id              = aws_subnet.public_subnet_1.id
   vpc_security_group_ids = [aws_security_group.web_sg.id]
   key_name               = aws_key_pair.web_server_keypair.key_name
