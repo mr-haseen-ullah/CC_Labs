@@ -412,8 +412,7 @@ resource "aws_s3_bucket_public_access_block" "finalterm_bucket_block" {
 
 # Upload the confirmation text file to S3
 resource "aws_s3_object" "exam_confirmation" {
-  bucket = aws_s3_bucket.finalterm_bucket.id
-  key    = "exam_confirmation.txt"
-  source = "${path.module}/exam_confirmation.txt"
-  etag   = filemd5("${path.module}/exam_confirmation.txt")
+  bucket  = aws_s3_bucket.finalterm_bucket.id
+  key     = "exam_confirmation.txt"
+  content = "Final Term Exam Upload Completed Successfully."
 }
